@@ -128,10 +128,13 @@ namespace MvcMovie.Controllers
                                            orderby m.GenreName
                                            select m;
 
+            var movie = await _context.Movie
+               .FirstOrDefaultAsync(m => m.Id == id);
+
             var movieGenreVM = new SingleMovieGenreViewModel
             {
                 Genres = new SelectList(genreQuery.Distinct().ToList(), "GenreId", "GenreName"),
-                Movie = new Movie()
+                Movie = movie
             };
 
             return View(movieGenreVM);
@@ -142,7 +145,7 @@ namespace MvcMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,GenreId,Price,Rating,ImageUrl")] Movie movie)
         {
             if (id != movie.Id)
             {

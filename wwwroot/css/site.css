@@ -1,6 +1,10 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+body {
+    background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/abstract-light-background-hd-4.jpg);
+    font-family: 'Indie Flower', cursive;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -44,6 +48,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    background-image: url(https://images.pexels.com/photos/1308624/pexels-photo-1308624.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
 }
 .footer {
   position: absolute;
